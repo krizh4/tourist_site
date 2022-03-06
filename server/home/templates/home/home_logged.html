@@ -1,0 +1,86 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
+    <script src="{% static 'js.js' %}"></script>
+    <script src="https://kit.fontawesome.com/a5aecb7d2e.js" crossorigin="anonymous"></script>
+    <title>main</title>
+    <style>
+        .heading{
+            text-align: center;
+        }
+        .lgo{
+            width: 40vh;
+        }
+    </style>
+</head>
+<body>
+    <!--topic/menubar-->
+    <div class="nav">
+        <a href=""><i class="fa-solid fa-bars"></i></a>
+        <div class="navon">
+            <a href="">| Gmail</a>
+            <a href="">| About us</a>
+            <a href="">Privacy ploicy</a>
+        </div>
+        <img class="lgo" src="{% static 'pics/logo1.png' %}" alt="logo" width="35%">
+    </div>
+    <!--Searchbox-->
+    <div class="searchbox">
+        <input class="search" type="text" name="sch" id="" placeholder="Type to search">
+        <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+    </div>
+    <!--first three columns-->
+    <div class="container">
+        <div class="imgs">
+            <!--columns images/text-->
+            <div id="frame1" class="item"><img src="{{ f30.image }}" alt=""><h3>{{ f30.name }}</h3><p>{{ f30.description }}</p></div>
+            <div id="first-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Some text</p>
+                </div>
+            </div>
+            <div class="item"><img src="{{ f31.image }}" alt=""><h3>{{ f31.name }}</h3><p>{{ f31.description }}</p></div> 
+            <div class="item"><img src="{{ f32.image }}" alt=""><h3>{{ f32.name }}</h3><p>{{ f32.description }}</p></div>
+        </div>
+        <!--Side bar-->
+        <div class="sid">
+            <!--Side bar images/text-->
+            <img src="{% static 'pics/slpic1.jpg' %}" alt="" width="100%"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, dolore cumque</p><br>
+            <img src="{% static 'pics/slpic1.jpg' %}" alt="" width="100%"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, dolore cumque</p><br>
+            <img src="{% static 'pics/slpic1.jpg' %}" alt="" width="100%"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, dolore cumque</p><br>
+            <img src="{% static 'pics/slpic1.jpg' %}" alt="" width="100%"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, dolore cumque</p>
+        </div>
+            
+    </div>
+    <!----- Recomndation part---->
+    <div class="recm_main">
+        <h1 class="heading">Our recommendation</h1>
+        <div class="recm">
+            <!--recomondation images -->
+            <div class="col"><a href=""><img src="{% static 'pics/slpic1.jpg' %}" alt="" width="100%">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto distinctio totam enim fugiat quasi commodi.</a></div>
+            <div class="col"><a href=""><img src="{% static 'pics/slpic1.jpg' %}" alt="" width="100%">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto distinctio totam enim fugiat quasi commodi</a></div>
+            <div class="col"><a href=""><img src="{% static 'pics/slpic1.jpg' %}" alt="" width="100%">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto distinctio totam enim fugiat quasi commodi</a></div>
+            <div class="col"><a href=""><img src="{% static 'pics/slpic1.jpg' %}" alt="" width="100%">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto distinctio totam enim fugiat quasi commodi</a></div>
+            <div class="col"><a href=""><img src="{% static 'pics/slpic1.jpg' %}" alt="" width="100%">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto distinctio totam enim fugiat quasi commodi</a></div>
+            <div class="col"><a href=""><img src="{% static 'pics/slpic1.jpg' %}" alt="" width="100%">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto distinctio totam enim fugiat quasi commodi</a></div>
+        </div>
+    </div>
+    <!--experience-->
+    <h1 class="heading">Things you can experience</h1>
+    <div class="expcol">
+        <div class="colt"><a href=""><h2>Adventure</h2><img src="{% static 'pics/slpic1.jpg' %}" alt=""></a></div>
+        <div class="colt"><a href=""><h2>Adventure</h2><img src="{% static 'pics/slpic1.jpg' %}" alt=""></a></div>
+        <div class="colt"><a href=""><h2>Adventure</h2><img src="{% static 'pics/slpic1.jpg' %}" alt=""></a></div>
+        <div class="colt"><a href=""><h2>Adventure</h2><img src="{% static 'pics/slpic1.jpg' %}" alt=""></a></div>
+        <div class="colt"><a href=""><h2>Adventure</h2><img src="{% static 'pics/slpic1.jpg' %}" alt=""></a></div>
+        <div class="colt"><a href=""><h2>Adventure</h2><img src="{% static 'pics/slpic1.jpg' %}" alt=""></a></div>
+        <div class="colt"><a href=""><h2>Adventure</h2><img src="{% static 'pics/slpic1.jpg' %}" alt=""></a></div>
+        <div class="colt"><a href=""><h2>Adventure</h2><img src="{% static 'pics/slpic1.jpg' %}" alt=""></a></div>
+    </div>
+</body>
+</html>
