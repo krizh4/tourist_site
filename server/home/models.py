@@ -16,29 +16,40 @@ class Place(models.Model):
     def __str__(self):
         return (self.name)
 
-class VisitedPlace(models.Model):
-    visited_places = models.TextField()
+class WishlistAndVisitedPlace(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    wishlist = models.TextField(default='[]')
+    visited_places = models.TextField(default='[]')
     added_date = models.DateField()
-    user = models.ForeignKey(User, on_delete=models.CASCADE, unique=True)
 
     class Meta():
-        verbose_name = 'Visited Place'
-        verbose_name_plural = 'Visited Places'
+        verbose_name = 'Wishlist and Visited Place'
+        verbose_name_plural = 'Wishlist and Visited Places'
 
     def __str__(self):
         return (self.user.username)
 
-class Wishlist(models.Model):
-    to_visit = models.TextField()
-    added_date = models.DateField()
-    user = models.ForeignKey(User, on_delete=models.CASCADE, unique=True)
+class OurRecom(models.Model):
+    item = models.ForeignKey(Place, on_delete=models.CASCADE)
+    added_date = models.DateTimeField()
 
-    class Meta:
-        verbose_name = 'Wishlist'
-        verbose_name_plural = 'Wishlists'
+    class Meta():
+        verbose_name = "Our Recommendation"
+        verbose_name_plural = "Our Recommendations"
     
     def __str__(self):
-        return (self.user.username)
+        return self.item.name
 
+class Experience(models.Model):
+    name = models.TextField(max_length=255)
+    link = models.URLField(max_length=250)
+    image = models.URLField(max_length=250)
+
+    class Meta():
+        verbose_name = 'Experience'
+        verbose_name_plural = 'Experiences'
+    
+    def __str__(self):
+        return self.name
 
 # Create your models here.

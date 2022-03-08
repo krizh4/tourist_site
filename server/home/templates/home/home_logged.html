@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
-    <script src="{% static 'js.js' %}"></script>
     <script src="https://kit.fontawesome.com/a5aecb7d2e.js" crossorigin="anonymous"></script>
     <title>main</title>
     <style>
@@ -22,9 +21,9 @@
     <div class="nav">
         <a href=""><i class="fa-solid fa-bars"></i></a>
         <div class="navon">
-            <a href="">| Gmail</a>
-            <a href="">| About us</a>
-            <a href="">Privacy ploicy</a>
+            <a href="{% url 'contact_us' %}">| Contact us</a>
+            <a href="{% url 'about_us'%}">| About us</a>
+            <a href="{% url 'visited_places' %}">Visited Places</a>
         </div>
         <img class="lgo" src="{% static 'pics/logo1.png' %}" alt="logo" width="35%">
     </div>
@@ -37,23 +36,67 @@
     <div class="container">
         <div class="imgs">
             <!--columns images/text-->
-            <div id="frame1" class="item"><img src="{{ f30.image }}" alt=""><h3>{{ f30.name }}</h3><p>{{ f30.description }}</p></div>
-            <div id="first-modal" class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <p>Some text</p>
-                </div>
+            <div class="item">
+                <img src="{{ f30.image }}" alt=""><h3>{{ f30.name }}</h3><p>{{ f30.description }}</p>
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" name="addtw" value="{{ f30 }}">Add to wishlist</button>
+                    <button type="submit" name="visited" value="{{ f30 }}">Visited Before</button>
+                </form>
             </div>
-            <div class="item"><img src="{{ f31.image }}" alt=""><h3>{{ f31.name }}</h3><p>{{ f31.description }}</p></div> 
-            <div class="item"><img src="{{ f32.image }}" alt=""><h3>{{ f32.name }}</h3><p>{{ f32.description }}</p></div>
+            <div class="item">
+                <img src="{{ f31.image }}" alt=""><h3>{{ f31.name }}</h3><p>{{ f31.description }}</p>
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" name="addtw" value="{{ f31 }}">Add to wishlist</button>
+                    <button type="submit" name="visited" value="{{ f31 }}">Visited Before</button>
+                </form>
+            </div> 
+            <div class="item">
+                <img src="{{ f32.image }}" alt=""><h3>{{ f32.name }}</h3><p>{{ f32.description }}</p>
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" name="addtw" value="{{ f32 }}">Add to Wishlist</button>
+                    <button type="submit" name="visited" value="{{ f32 }}">Visited Before</button>
+                </form>
+            </div>
         </div>
         <!--Side bar-->
         <div class="sid">
+            <a href="{% url 'tovisit' %}" style="color: rgb(0, 0, 0); text-decoration: none;"><h3>Wishlist - To Visit</h3></a>
             <!--Side bar images/text-->
-            <img src="{% static 'pics/slpic1.jpg' %}" alt="" width="100%"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, dolore cumque</p><br>
-            <img src="{% static 'pics/slpic1.jpg' %}" alt="" width="100%"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, dolore cumque</p><br>
-            <img src="{% static 'pics/slpic1.jpg' %}" alt="" width="100%"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, dolore cumque</p><br>
-            <img src="{% static 'pics/slpic1.jpg' %}" alt="" width="100%"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, dolore cumque</p>
+            <div style="position: relative; text-align: center; color: rgb(255, 255, 255);">
+                <img src="{{ w0.image }}" alt="" height="40%" width="100%" style="filter: brightness(50%);">
+                <div style="position: absolute; top: 50%; left: 50%;  transform: translate(-50%, -50%);">{{ w0.name }}</div>
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" name="visited" value="{{ w3 }}" onclick="setTimeout(location.reload(),1000)">Visited</button>
+                </form>
+            </div>
+            <div style="position: relative; text-align: center; color: rgb(255, 255, 255);">
+                <img src="{{ w1.image }}" alt="" height="40%" width="100%" style="filter: brightness(50%);">
+                <div style="position: absolute; top: 50%; left: 50%;  transform: translate(-50%, -50%);">{{ w1.name }}</div>
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" name="visited" value="{{ w3 }}" onclick="setTimeout(location.reload(),1000)">Visited</button>
+                </form>
+            </div>
+            <div style="position: relative; text-align: center; color: rgb(255, 255, 255);">
+                <img src="{{ w2.image }}" alt="" height="40%" width="100%" style="filter: brightness(50%);">
+                <div style="position: absolute; top: 50%; left: 50%;  transform: translate(-50%, -50%);">{{ w2.name }}</div>
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" name="visited" value="{{ w3 }}" onclick="setTimeout(location.reload(),1000)">Visited</button>
+                </form>
+            </div>
+            <div style="position: relative; text-align: center; color: rgb(255, 255, 255);">
+                <img src="{{ w3.image }}" alt="" height="40%" width="100%" style="filter: brightness(50%);">
+                <div style="position: absolute; top: 50%; left: 50%;  transform: translate(-50%, -50%);">{{ w3.name }}</div>
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" name="visited" value="{{ w3 }}" onclick="setTimeout(location.reload(),1000)">Visited</button>
+                </form>
+            </div>
         </div>
             
     </div>
@@ -62,25 +105,27 @@
         <h1 class="heading">Our recommendation</h1>
         <div class="recm">
             <!--recomondation images -->
-            <div class="col"><a href=""><img src="{% static 'pics/slpic1.jpg' %}" alt="" width="100%">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto distinctio totam enim fugiat quasi commodi.</a></div>
-            <div class="col"><a href=""><img src="{% static 'pics/slpic1.jpg' %}" alt="" width="100%">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto distinctio totam enim fugiat quasi commodi</a></div>
-            <div class="col"><a href=""><img src="{% static 'pics/slpic1.jpg' %}" alt="" width="100%">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto distinctio totam enim fugiat quasi commodi</a></div>
-            <div class="col"><a href=""><img src="{% static 'pics/slpic1.jpg' %}" alt="" width="100%">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto distinctio totam enim fugiat quasi commodi</a></div>
-            <div class="col"><a href=""><img src="{% static 'pics/slpic1.jpg' %}" alt="" width="100%">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto distinctio totam enim fugiat quasi commodi</a></div>
-            <div class="col"><a href=""><img src="{% static 'pics/slpic1.jpg' %}" alt="" width="100%">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto distinctio totam enim fugiat quasi commodi</a></div>
+            <div class="col"><a href=""><img src="{{ or0.item.image }}" alt="" width="100%"><p style="font-size: small;">{{ or0.item.description }}</p></a></div>
+            <div class="col"><a href=""><img src="{{ or1.item.image }}" alt="" width="100%"><p style="font-size: small;">{{ or1.item.description }}</p></a></div>
+            <div class="col"><a href=""><img src="{{ or2.item.image }}" alt="" width="100%"><p style="font-size: small;">{{ or2.item.description }}</p></a></div>
+            <div class="col"><a href=""><img src="{{ or3.item.image }}" alt="" width="100%"><p style="font-size: small;">{{ or3.item.description }}</p></a></div>
+            <div class="col"><a href=""><img src="{{ or4.item.image }}" alt="" width="100%"><p style="font-size: small;">{{ or4.item.description }}</p></a></div>
+            <div class="col"><a href=""><img src="{{ or5.item.image }}" alt="" width="100%"><p style="font-size: small;">{{ or5.item.description }}</p></a></div>
         </div>
     </div>
     <!--experience-->
     <h1 class="heading">Things you can experience</h1>
     <div class="expcol">
-        <div class="colt"><a href=""><h2>Adventure</h2><img src="{% static 'pics/slpic1.jpg' %}" alt=""></a></div>
-        <div class="colt"><a href=""><h2>Adventure</h2><img src="{% static 'pics/slpic1.jpg' %}" alt=""></a></div>
-        <div class="colt"><a href=""><h2>Adventure</h2><img src="{% static 'pics/slpic1.jpg' %}" alt=""></a></div>
-        <div class="colt"><a href=""><h2>Adventure</h2><img src="{% static 'pics/slpic1.jpg' %}" alt=""></a></div>
-        <div class="colt"><a href=""><h2>Adventure</h2><img src="{% static 'pics/slpic1.jpg' %}" alt=""></a></div>
-        <div class="colt"><a href=""><h2>Adventure</h2><img src="{% static 'pics/slpic1.jpg' %}" alt=""></a></div>
-        <div class="colt"><a href=""><h2>Adventure</h2><img src="{% static 'pics/slpic1.jpg' %}" alt=""></a></div>
-        <div class="colt"><a href=""><h2>Adventure</h2><img src="{% static 'pics/slpic1.jpg' %}" alt=""></a></div>
+        <div class="colt"><a href="{{ exp0.link }}" target="_blank" rel="noreferrer noopener"><h2>{{ exp0.name }}</h2><img src="{{ exp0.image }}" alt=""></a></div>
+        <div class="colt"><a href="{{ exp1.link }}" target="_blank" rel="noreferrer noopener"><h2>{{ exp1.name }}</h2><img src="{{ exp1.image }}" alt=""></a></div>
+        <div class="colt"><a href="{{ exp2.link }}" target="_blank" rel="noreferrer noopener"><h2>{{ exp2.name }}</h2><img src="{{ exp2.image }}" alt=""></a></div>
+        <div class="colt"><a href="{{ exp3.link }}" target="_blank" rel="noreferrer noopener"><h2>{{ exp3.name }}</h2><img src="{{ exp3.image }}" alt=""></a></div>
+        <div class="colt"><a href="{{ exp4.link }}" target="_blank" rel="noreferrer noopener"><h2>{{ exp4.name }}</h2><img src="{{ exp4.image }}" alt=""></a></div>
+        <div class="colt"><a href="{{ exp5.link }}" target="_blank" rel="noreferrer noopener"><h2>{{ exp5.name }}</h2><img src="{{ exp5.image }}" alt=""></a></div>
+        <!--
+        <div class="colt"><a href="{{ exp6.link }}" target="_blank" rel="noreferrer noopener"><h2>{{ exp6.name }}</h2><img src="{{ exp6.image }}" alt=""></a></div>
+        <div class="colt"><a href="{{ exp7.link }}" target="_blank" rel="noreferrer noopener"><h2>{{ exp7.name }}</h2><img src="{{ exp7.image }}" alt=""></a></div>
+        -->
     </div>
 </body>
 </html>

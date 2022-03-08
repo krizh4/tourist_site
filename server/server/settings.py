@@ -28,6 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '.localhost',
     '127.0.0.1',
+    '*',
 ]
 
 
@@ -128,3 +129,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'login'
+
+CSRF_TRUSTED_ORIGINS = ['https://*.127.0.0.1']
