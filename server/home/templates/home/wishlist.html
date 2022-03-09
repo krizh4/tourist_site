@@ -12,7 +12,11 @@
     <div id="page">
         <div class="container">
           <div class="body">
-              <p>{{ wp0 }}</p>
+                <p>{{ wp0 }}</p>
+                <form method="post">
+                  {% csrf_token %}
+                  <button type="submit" name="visited" value="{{ wp0 }}" onclick="setTimeout(window.location=window.location, 1000)">Visited</button>
+                </form>
           </div>
           <div class="upArrow"></div>
       </div>
@@ -20,62 +24,63 @@
       <div class="container">
       <div class="body">
           <p>{{ wp1 }}</p>
+          <form method="post"> {% csrf_token %} <button type="submit" name="visited" value="{{ wp1 }}">Visited</button></form>
       </div>
       <div class="upArrow"></div>
       </div>
   
       <div class="container">
       <div class="body">
-          <p>{{ wp2 }}</p>
+          <p>{{ wp2 }}</p><form method="post"> {% csrf_token %} <button type="submit" name="visited" value="{{ wp2 }}">Visited</button></form>
       </div>
       <div class="upArrow"></div>
       </div>
   
       <div class="container">
       <div class="body">
-          <p>{{ wp3 }}</p>
+          <p>{{ wp3 }}</p><form method="post"> {% csrf_token %} <button type="submit" name="visited" value="{{ wp3 }}">Visited</button></form>
       </div>
       <div class="upArrow"></div>
       </div>
 
     <div class="container">
         <div class="body">
-            <p>{{ wp4 }}</p>
+            <p>{{ wp4 }}</p><form method="post">{% csrf_token %}<button type="submit" name="visited" value="{{ wp4 }}">Visited</button></form>
         </div>
         <div class="upArrow"></div>
     </div>
 
     <div class="container">
         <div class="body">
-            <p>{{ wp5 }}</p>
+            <p>{{ wp5 }}</p><form method="post">{% csrf_token %}<button type="submit" name="visited" value="{{ wp5 }}">Visited</button></form>
         </div>
         <div class="upArrow"></div>
     </div>
 
         <div class="container">
         <div class="body">
-            <p>{{ wp6 }}</p>
+            <p>{{ wp6 }}</p><form method="post">{% csrf_token %}<button type="submit" name="visited" value="{{ wp6 }}">Visited</button></form>
         </div>
         <div class="upArrow"></div>
     </div>
 
     <div class="container">
         <div class="body">
-            <p>{{ wp7 }}</p>
+            <p>{{ wp7 }}</p><form method="post">{% csrf_token %}<button type="submit" name="visited" value="{{ wp7 }}">Visited</button></form>
         </div>
         <div class="upArrow"></div>
     </div>
 
     <div class="container">
         <div class="body">
-            <p>{{ wp8 }}</p>
+            <p>{{ wp8 }}</p><form method="post">{% csrf_token %}<button type="submit" name="visited" value="{{ wp8 }}">Visited</button></form>
         </div>
         <div class="upArrow"></div>
     </div>
 
     <div class="container">
         <div class="body">
-            <p>{{ wp9 }}</p>
+            <p>{{ wp9 }}</p><form method="post">{% csrf_token %}<button type="submit" name="visited" value="{{ wp9 }}">Visited</button></form>
         </div>
         <div class="upArrow"></div>
     </div>

@@ -27,6 +27,8 @@ class ModelControl():
         list_w = eval(x.wishlist)
         list_v = list(dict.fromkeys(list_v))
         list_w = list(dict.fromkeys(list_w))
+        x.visited_places = list_v
+        x.wishlist = list_w
         if len(a) - len(list_v) - len(list_w) < 4 :
             pass
         else:
@@ -75,6 +77,8 @@ class ModelControl():
         x.visited_places = list_v
         x.save()
 
+        print('clicked')
+
     def visited_places(self):
         x = WishlistAndVisitedPlace.objects.get(user=self.user)
         list_v = eval(x.visited_places)
@@ -89,6 +93,8 @@ class ModelControl():
         list_w.reverse()
         self.list_w = list_w
 
+    def rem_visited(self):
+        pass
 
 
         '''self.place = [

@@ -60,6 +60,10 @@ def wishlist(request):
         context = {}
         for item in mc.list_w:
             context[f'wp{mc.list_w.index(item)}'] = mc.list_w[mc.list_w.index(item)]
+        
+        if (request.POST.get('visited')):
+            mc.add_to_visited(request.POST.get('visited'))
+            print(f"\"{request.POST.get('visited')}\" Added to the Visited Places")
 
         return render(request, 'home/wishlist.html', context=context)
 
