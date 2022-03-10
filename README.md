@@ -14,22 +14,22 @@ This website suggest things to tourists
 Clone the repository
 
 ```bash
-git clone https://github.com/krizh4/tourist_site.git
+~$ git clone https://github.com/krizh4/tourist_site.git
 ```
 ```bash
-cd tourist_site
+~$ cd tourist_site
 ```
 Install requirements
 ```bash
-pip install -r requirements.txt
+~$ pip install -r requirements.txt
 ```
 ### > Run on localhost
 
 ```bash
 ~$ cd server
-python manage.py makemigrations
-python manage.py migrate
-python manage.py runserver
+~$ python manage.py makemigrations
+~$ python manage.py migrate
+~$ python manage.py runserver
 ```
 
 ### > Deploying on heroku
