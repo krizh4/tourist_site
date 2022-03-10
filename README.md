@@ -26,7 +26,7 @@ pip install -r requirements.txt
 ### > Run on localhost
 
 ```bash
-cd server
+~$ cd server
 python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
