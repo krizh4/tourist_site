@@ -95,10 +95,3 @@ class ModelControl():
 
     def rem_visited(self):
         pass
-
-
-        '''self.place = [
-            Place.objects.get(name="Sigiriya"),
-            Place.objects.get(name="Sigiriya"),
-            Place.objects.get(name="Sigiriya")
-        ]'''
