@@ -1,6 +1,7 @@
 # Link SL (the tourists_site project)
 
-This website suggest things to tourists
+This website suggest things to tourists 
+""" Major UPDATE Coming Soon """
 
 ## Made with
 
